@@ -24,21 +24,21 @@ Paste the following code into the console then press Enter.
 let arrayVideos = [];
 console.log('\n'.repeat(50));
 
-// Locate all video containers
-const videoContainers = document.querySelectorAll('.css-1uqux2o-DivItemContainerV2'); // Adjust this selector if necessary
+// Locate all video containers in the page
+const videoContainers = document.querySelectorAll('.css-1uqux2o-DivItemContainerV2'); // This miay need to be changed
 
 videoContainers.forEach((container, index) => {
-    const descriptionElement = container.querySelector('img[alt]'); // Locate the <img> with description in the alt attribute
-    const videoLinkElement = container.querySelector('a[href^="https://www.tiktok.com/"]'); // Locate the <a> tag with the video URL
+    const descriptionElement = container.querySelector('img[alt]'); // Locate <img> tag that has alt attribute with description
+    const videoLinkElement = container.querySelector('a[href^="https://www.tiktok.com/"]'); // Find the <a> tag with the video URL
 
-    const description = descriptionElement ? descriptionElement.getAttribute('alt').trim() : 'No description'; // Extract description or default
+    const description = descriptionElement ? descriptionElement.getAttribute('alt').trim() : 'No description'; // Extract description if it exists
     const videoURL = videoLinkElement ? videoLinkElement.href : 'No URL'; // Extract URL or default
 
     if (description && videoURL) {
         arrayVideos.push(`"${description}","${videoURL}"`); // Format as CSV
         console.log(`Description ${index + 1}: ${description}, URL: ${videoURL}`);
     } else {
-        console.log(`Missing description or URL for video ${index + 1}.`);
+        console.log(`Could not find a description or URL for video ${index + 1}.`);
     }
 });
 
@@ -49,17 +49,17 @@ if (arrayVideos.length > 0) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'my_data.csv';
+    a.download = 'tt_video_data.csv';
     a.click();
 
-    console.log("CSV file created successfully.");
+    console.log("Success! CSV file created!.");
 } else {
     console.log("No data found to export.");
 }
 ```
 
 ## Step 3
-Upload my_data.csv to Google Sheets. Select the column containing the video urls and copy to clipboard.
+Upload tt_video_data.csv to Google Sheets. Select the column containing the video urls and copy to clipboard.
 
 
 ## Step 4
