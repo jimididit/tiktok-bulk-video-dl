@@ -64,7 +64,8 @@ if (arrayVideos.length > 0) {
 
 ## Step 3
 
-Upload tt_video_data.csv to Google Sheets. Select the column containing the video urls and copy to clipboard.
+Upload tt_video_data.csv to Google Sheets. You should see a column containing the all of video urls (should be column C).
+Click on the first url, scroll to the end of the list, then click on the very last url while holding Shift, it will select all urls. Use Ctrl+C to copy all urls.
 
 ## Step 4
 
